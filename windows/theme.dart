@@ -1,30 +1,22 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() => runApp(const MyApp());
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<MyApp> createState() => _MyApp();
 }
 
-class _MyAppState extends State<MyApp> {
+class _MyApp extends State<MyApp> {
   bool isDarkMode = false;
 
-  void toggleTheme(bool value) {
-    setState(() {
-      isDarkMode = value;
-    });
-  }
+  void themeToggole(bool value) => {setState(() => isDarkMode = value)};
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-
       theme: ThemeData(
         brightness: Brightness.light,
         colorScheme: ColorScheme.fromSeed(
@@ -45,30 +37,19 @@ class _MyAppState extends State<MyApp> {
 
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Theme Toggle'),
-          actions: [Switch(value: isDarkMode, onChanged: toggleTheme)],
+          title: const Text("Application"),
+          actions: [Switch(value: isDarkMode, onChanged: themeToggole)],
         ),
-
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Icon(isDarkMode ? Icons.dark_mode : Icons.light_mode, size: 80),
-
-              const SizedBox(height: 20),
-
-              Text(
-                isDarkMode ? 'Dark Mode' : 'Light Mode',
-                style: const TextStyle(fontSize: 24),
-              ),
-
-              const SizedBox(height: 20),
+              Text(isDarkMode ? "Dark Mode" : "LightMode"),
 
               ElevatedButton(
-                onPressed: () {
-                  toggleTheme(!isDarkMode);
-                },
-                child: const Text('Toggle Theme'),
+                onPressed: () => themeToggole(!isDarkMode),
+                child: Text("Toggole"),
               ),
             ],
           ),
