@@ -26,7 +26,6 @@ class GalleryScreen extends StatefulWidget {
 class _GalleryScreenState extends State<GalleryScreen> {
   int currentIndex = 0;
   final List<String> catImages = [
-    'http://localhost:3000/Leopardus-tilcayo-cat.png',
     'https://images.unsplash.com/photo-1573865526739-10659fec78a5?w=700',
     'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600',
   ];
